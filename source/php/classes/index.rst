@@ -27,4 +27,5 @@ Classes
     tools_context
     tools_rss
     tools_url
+    tools_wysiwyg
     view
