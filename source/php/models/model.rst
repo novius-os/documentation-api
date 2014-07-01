@@ -32,18 +32,21 @@ Configuration
 
 	Defines the attachments of a model. Attachment is a special type of :term:`relations <Relations>` created for Novius OS. See :php:class:`Nos\\Attachment`.
 
-.. php:attr:: shared_wysiwygs_context
+.. _php/models/model/providers:
 
-	Array of WYSIWYG keys which are shared by context twins. See :ref:`WYSIWYG accessor <php/models/model/accessors>`.
+.. php:attr:: providers
 
-.. php:attr:: shared_medias_context
+    Defines the behaviours of model.
 
-	Array of media keys which are shared by context twins. See :ref:`Media accessor <php/models/model/accessors>`.
+    :relation: Required. Wherein the relation is based on the provider. Must be a multiple relation and have ``cascade_save`` activate.
+    :value_property: Optional. Set to ``value`` if empty. The fields containing the provider value.
+    :key_property: Optional. Set to ``key`` if empty. The fields containing the provider key.
+    :value_relation: Optional. If set, must contains a single relation name and then the provider value become the model.
 
 In Novius OS, you can configure model by a file configuration.
 For sample: if in your application you define a ``Model_Monkey`` class, you can create a file :file:`config/model/monkey.config.php` to extend configuration.
 All this attributes can be defined in configuration file : ``properties``, ``table_name``, ``title_property``, ``observers``,
-``behaviours``, ``shared_wysiwygs_context``, ``shared_medias_context`` and all relations types (``has_many``, ``belongs_to``,
+``behaviours``, ``providers`` and all relations types (``has_many``, ``belongs_to``,
 ``has_one``, ``many_many``, ``twinnable_has_many``, ``twinnable_belongs_to``, ``twinnable_has_one``, ``twinnable_many_many``
 and ``attachment``).
 
@@ -120,19 +123,18 @@ Relations
 	* Relation type: :term:`has_many`.
 	* Model: :php:class:`Nos\\Media\\Model_Link`
 
-
 .. warning::
 
-    Don't use these relations directly, we created accessors for them.
+    Don't use these relations directly, we created providers for them.
 
-.. _php/models/model/accessors:
+.. _php/models/model/native_providers:
 
-Accessors
-*********
+Native Providers
+****************
 
 .. php:attr:: medias
 
-	Accessor for :php:class:`Nos\\Media\\Model_Link` linked to model.
+	Provider for :php:class:`Nos\\Media\\Model_Link` linked to model.
 
 	.. code-block:: php
 
@@ -148,7 +150,7 @@ Accessors
 
 .. php:attr:: wysiwygs
 
-	Accessor for :php:class:`Nos\\Model_Wysiwyg` linked to model.
+	Provider for :php:class:`Nos\\Model_Wysiwyg` linked to model.
 
 	.. code-block:: php
 
@@ -158,7 +160,7 @@ Accessors
 
 		$item->wysiwygs->summary = 'foo'; // Set a Model_Wysiwyg named 'content', with content 'foo'.
 
-		$item->medias->summary = null; // Remove a wysiwyg from an item
+		$item->wysiwygs->summary = null; // Remove a wysiwyg from an item
 		// or
 		unset($item->wysiwygs->summary);
 
@@ -185,8 +187,25 @@ Methods
 
     :param string $type: A valid relation type.
     :param string $name: The relation name to add.
-    :param string $options: The relation options
+    :param array $options: The relation options
     :throws: ``\FuelException`` if $type is not a valid one.
+
+.. php:staticmethod:: providers($specific = null, $default = null)
+
+    Get the class's providers and what they provide
+
+    :param string $specific: Provider to retrieve info of, allows direct param access by using dot notation
+    :param mixed $default: Return value when specific key wasn't found
+    :throws: ``Nos\Orm\UnknownProviderException``
+    :returns: The specific provider if it exist and is requested or the defaut value. Else, array of all providers.
+
+.. php:staticmethod:: addProvider($name, array $properties)
+
+    Add a provider to model
+
+    :param string $name: The provider name
+    :param array $properties: The provider properties
+    :throws: ``Nos\Orm\InvalidProviderException``
 
 .. php:staticmethod:: configModel()
 

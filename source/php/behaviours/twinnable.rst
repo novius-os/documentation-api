@@ -9,7 +9,6 @@ Twinnable
 
 	| Extends :php:class:`Nos\\Orm_Behaviour_Contextable`.
 	| It adds the ability to twin together different items with different contexts.
-	| It also adds the ability to link medias and WYSIWYGs to context twins.
 
 	.. seealso::
 
@@ -34,6 +33,45 @@ Configuration
 .. php:attr:: common_fields
 
 	Array of fields which are common to all context twins.
+
+.. _php/behaviours/twinnable/providers:
+
+Providers
+*********
+
+This behaviour adds 2 :ref:`providers <php/models/model/providers>` to link WYSIWYGs and medias to context twins.
+
+.. php:attr:: shared_medias_context
+
+	Provider for :php:class:`Nos\\Media\\Model_Link` linked to context twins.
+
+	.. code-block:: php
+
+		<?php
+		$item->shared_medias_context->avatar; // Get a Model_Link named 'avatar'
+		$item->shared_medias_context->avatar->media; // Get Model_Media named 'avatar'
+
+		$item->shared_medias_context->cv = $Model_Media; // Attach a Model_Media named 'cv'
+
+		$item->shared_medias_context->cv = null; // Detach a media from items context twins
+		// or
+		unset($item->shared_medias_context->cv);
+
+.. php:attr:: shared_wysiwygs_context
+
+	Provider for :php:class:`Nos\\Model_Wysiwyg` linked to context twins.
+
+	.. code-block:: php
+
+		<?php
+		$item->shared_wysiwygs_context->content; // Get a Model_Wysiwyg named 'content'
+		$item->shared_wysiwygs_context->content->wysiwyg_text; // Get content of Model_Wysiwyg named 'content'
+
+		$item->shared_wysiwygs_context->summary = 'foo'; // Set a Model_Wysiwyg named 'content', with content 'foo'.
+
+		$item->shared_wysiwygs_context->summary = null; // Remove a wysiwyg from items context twins
+		// or
+		unset($item->shared_wysiwygs_context->summary);
 
 .. _php/behaviours/twinnable/methods:
 

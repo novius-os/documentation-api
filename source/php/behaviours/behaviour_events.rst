@@ -94,6 +94,10 @@ Static events
 
     Trigger when building relations of the model.
 
+.. php:method:: buildProviders()
+
+    Trigger when building providers of the model.
+
 .. php:method:: before_query(&$options)
 
     Trigger before execute a query build on the model.
