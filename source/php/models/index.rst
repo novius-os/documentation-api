@@ -9,5 +9,6 @@ Models
 	media/index
 	user/index
 	menu/index
+	model_template_variation
 	model_wysiwyg
 	model_content_nuggets
