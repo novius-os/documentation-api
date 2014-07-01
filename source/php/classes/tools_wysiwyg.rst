@@ -7,8 +7,8 @@ Tools_Wysiwyg
 
 	Provides static methods to work with WYSIWYG.
 
-::parse_wysiwyg()
------------------
+::parse()
+---------
 
 .. php:staticmethod:: parse($content)
 
