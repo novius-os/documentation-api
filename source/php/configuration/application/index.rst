@@ -13,3 +13,4 @@ Application configuration
 	glossary
 	permissions
 	menu_item_driver
+	template_variation

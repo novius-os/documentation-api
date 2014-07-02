@@ -215,6 +215,7 @@ In the end, a template is defined with:
         - the width (in units) ;
         - the height (in units).
 
+:screenshot: Optional. URL of the image representing the template.
 
 Here's an example:
 
@@ -238,7 +239,9 @@ Here's an example:
         ),
     );
 
+Templates are not used directly in Novius OS. Template variations by context is used.
 
+.. seealso:: :ref:`php/configuration/template_variation`
 
 .. _php/configuration/metadata/data_catchers:
 
