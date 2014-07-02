@@ -28,8 +28,6 @@ Behaviours
 * :php:class:`Contextable <Nos\\Orm_Behaviour_Contextable>`
 * :php:class:`Author <Nos\\Orm_Behaviour_Author>`
 
-.. _php/models/model_page/methods:
-
 Methods
 *******
 

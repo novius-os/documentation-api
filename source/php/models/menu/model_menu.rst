@@ -20,8 +20,6 @@ Behaviours
 
 * :php:class:`Twinnable <Nos\\Orm_Behaviour_Twinnable>`
 
-.. _php/models/media/model_media/methods:
-
 Methods
 *******
 

@@ -36,4 +36,4 @@ Methods
 .. php:method:: driver($reload = false)
 
 	:param bool $reload: If true, reload the menu item driver
-	:returns: The driver of the item
+	:returns: The :php:class:`Nos\\Menu\\Menu_Item_Driver` instance of the item

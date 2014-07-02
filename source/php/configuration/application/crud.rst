@@ -1,3 +1,5 @@
+.. _php/configuration/crud:
+
 Crud Controller
 ###############
 
@@ -281,7 +283,7 @@ Configuration example:
             ),
             'validation' => array(),
     );
-    
+
 Advanced configuration example:
 
 .. code-block:: php

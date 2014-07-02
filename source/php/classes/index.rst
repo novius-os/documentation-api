@@ -19,6 +19,8 @@ Classes
     datacatcher
     frontcache
     i18n
+    menu_item
+    menu_item_driver
     migration
     nos
     permission

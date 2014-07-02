@@ -12,3 +12,4 @@ Application configuration
 	crud
 	glossary
 	permissions
+	menu_item_driver
