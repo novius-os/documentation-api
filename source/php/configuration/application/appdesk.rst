@@ -41,7 +41,7 @@ Associative array. All keys are optional. Most keys are similar than the `find f
 
 :model: Model on which query is executed.
 :limit:
-:order:
+:order_by:
 :related:
 :callback: Array of callback functions allowing you to customize the query (first parameter is the current query, must return the modified query).
 
