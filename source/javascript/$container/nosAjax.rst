@@ -33,9 +33,9 @@ nosAjaxSuccess
 
 	:param JSON options:
 
-		:notify:        A ``string`` or ``[string]``. Use for call :js:func:`$.nosNotify`.
-		:error:         A ``string`` or ``[string]``. Use for call :js:func:`$.nosNotify` with ``error`` for notification type.
-		:action:        A ``string`` or ``[string]``. Use for call :js:func:`$container.nosAction`.
+		:notify:        A ``string`` or ``{object}``. Use for call :js:func:`$.nosNotify`. If only a string is given, notification type will be 'notice', otherwise call $.nosNotify with the object parameters.
+		:error:         A ``string`` or ``{object}``. Use for call :js:func:`$.nosNotify` with ``error`` for notification type.
+		:action:        A ``string`` or ``{object}``. Use for call :js:func:`$container.nosAction`.
 		:closeDialog:   ``Boolean``. If ``true``, call :js:func:`nosDialog.close`.
 		:closeTab:      ``Boolean``. If ``true``, call :js:func:`nosTabs.close`.
 		:replaceTab:    ``{}``. Use to call :js:func:`nosTabs.update`.
